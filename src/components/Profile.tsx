@@ -1,4 +1,3 @@
-import React from 'react'
 
 function Profile({ profileImage, name, role }: { profileImage: string, name: string, role: string }) {
     return (

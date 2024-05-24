@@ -1,4 +1,3 @@
-import React from 'react'
 import tailwindLogo from '../assets/tailwind.svg'
 import lightTailwindLogo from '../assets/tailwind-light.svg'
 

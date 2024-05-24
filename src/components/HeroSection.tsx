@@ -1,4 +1,3 @@
-import React from 'react'
 
 function HeroSection({ primaryText, secondaryText }: { primaryText: string, secondaryText: string }) {
     return (
