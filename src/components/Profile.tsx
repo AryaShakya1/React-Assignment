@@ -9,8 +9,8 @@ function Profile({ profileImage, name, role }: { profileImage: string, name: str
                 className="w-14 h-14 rounded-full mr-4"
             />
             <div>
-                <h2 className="text-lg font-semibold text-white">{name}</h2>
-                <p className="text-gray-400">{role}</p>
+                <h2 className="text-lg font-semibold text-black dark:text-white">{name}</h2>
+                <p className="text-gray-600 dark:text-gray-400">{role}</p>
             </div>
         </div>
     )
