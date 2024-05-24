@@ -4,8 +4,19 @@ import SearchIcon from "../assets/search.svg";
 import Profile from "../components/Profile";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+import { useState } from "react";
 
 function HomePage() {
+    const [isDark, setIsDark] = useState(false)
+    const [text, setText] = useState('')
+    const handleToggle = () => {
+        setIsDark(!isDark);
+        if (!isDark) {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
+    }
 
     const cardItems = [
         {
@@ -58,13 +69,13 @@ function HomePage() {
 
     return (
         <div className="flex flex-col bg-slate-50 dark:bg-[#0B1120] min-h-screen">
-            <Navbar />
+            <Navbar handleToggle={handleToggle} isDark={isDark} />
             <HeroSection
                 primaryText="Rapidly build modern websites without ever leaving your HTML."
                 secondaryText="A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup."
             />
             <div className="flex flex-row justify-center">
-                <button className="px-6 mx-4 rounded-md bg-black hover:bg-gray-600 text-white dark:bg-blue-500 dark:hover:bg-blue-400 dark:text-white font-bold py-3  ">
+                <button className="px-6 mx-4 rounded-md bg-black hover:bg-gray-600 text-white dark:bg-blue-500 dark:hover:bg-blue-400 dark:text-white font-bold py-3" onClick={() => alert(text)}>
                     Get Started
                 </button>
                 <div className="flex items-center ring-1 ring-slate-900/10 hover:ring-slate-300 dark:bg-gray-800 rounded-md p-2">
@@ -73,6 +84,8 @@ function HomePage() {
                         type="text"
                         placeholder="Quick Search..."
                         className="dark:bg-gray-800 focus:outline-none flex-1 dark:text-white"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
                     />
                 </div>
             </div>
@@ -99,7 +112,7 @@ function HomePage() {
                 ))}
             </div>
             <div className="mt-16"></div>
-            <Footer />
+            <Footer isDark={isDark} />
         </div>
     );
 }
