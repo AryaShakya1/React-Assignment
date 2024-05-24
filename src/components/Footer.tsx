@@ -1,6 +1,8 @@
 import React from 'react'
 import tailwindLogo from '../assets/tailwind.svg'
-function Footer() {
+import lightTailwindLogo from '../assets/tailwind-light.svg'
+
+function Footer({ isDark }: { isDark: boolean }) {
     const footerItems = [
         {
             title: 'Getting Started',
@@ -66,7 +68,7 @@ function Footer() {
                         </div>
                     ))}
                 </div>
-                <div><img src={tailwindLogo} alt="Tailwind Logo" width={200} height={300} className='mt-12' /></div>
+                <div><img src={isDark ? tailwindLogo : lightTailwindLogo} alt="Tailwind Logo" width={200} height={300} className='mt-12' /></div>
             </div>
         </footer>
     )
