@@ -5,19 +5,10 @@ import NavLogo from './NavLogo'
 import GithubLogo from '../assets/github-mark-white.svg'
 import lightGithubLogo from '../assets/github-mark.svg'
 import DarkModeLogo from '../assets/dark-mode.svg'
-import { useState } from "react";
 import LightModeLogo from '../assets/light-mode.svg'
 
-function Navbar() {
-    const [isDark, setIsDark] = useState(false)
-    const handleToggle = () => {
-        setIsDark(!isDark);
-        if (!isDark) {
-            document.body.classList.add('dark');
-        } else {
-            document.body.classList.remove('dark');
-        }
-    }
+function Navbar({ handleToggle, isDark }: { handleToggle: React.MouseEventHandler<HTMLButtonElement>, isDark: boolean }) {
+
     return (
         <div className='flex flex-row justify-between px-4'>
             <img src={isDark ? tailwindLogo : lightTailwindLogo} alt="Tailwind Logo" width={200} height={300} />
